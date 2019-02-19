@@ -6,7 +6,8 @@
 		<module>spring-application</module>
         <module>spring-mvc-view</module>
         <module>spring-mvc-rest</module>
-    </modules>
+		<module>spring-reactive</module>
+	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
