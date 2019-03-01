@@ -13,6 +13,7 @@
         <module>spring-cloud-config-client</module>
         <module>spring-cloud-config-server</module>
         <module>spring-cloud-service-discovery-client</module>
+        <module>spring-cloud-client-application</module>
     </modules>
 
     <artifactId>spring-cloud-project</artifactId>
