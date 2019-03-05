@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-client-application</artifactId>
-    <name>Spring Cloud 客户端应用</name>
+    <artifactId>spring-cloud-server-application</artifactId>
+    <name>Spring Cloud 服务端应用</name>
 
     <dependencies>
         <dependency>
