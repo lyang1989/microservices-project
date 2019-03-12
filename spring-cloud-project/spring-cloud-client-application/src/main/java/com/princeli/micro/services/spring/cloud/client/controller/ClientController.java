@@ -2,6 +2,8 @@ package com.princeli.micro.services.spring.cloud.client.controller;
 
 import com.princeli.micro.services.spring.cloud.client.annotation.CustomizedLoadBalanced;
 import com.princeli.micro.services.spring.cloud.client.loadbalance.LoadBalancedRequestInterceptor;
+import com.princeli.micro.services.spring.cloud.client.service.feign.clients.SayingService;
+import com.princeli.micro.services.spring.cloud.client.service.rest.clients.SayingRestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -41,6 +43,11 @@ public class ClientController {
     @Value("${spring.application.name}")
     private String currentServiceName;
 
+    @Autowired
+    private SayingService sayingService;
+
+    @Autowired
+    private SayingRestService sayingRestService;
 
     //线程安全
     private volatile Set<String> targetUrls = new HashSet<>();
@@ -84,6 +91,21 @@ public class ClientController {
         return lbRestTemplate.getForObject("http://"+serviceName+"/say?message="+message,String.class);
 
     }
+
+    @GetMapping("/feign/say")
+    public String feignSay(@RequestParam String message){
+        //发送请求
+        return sayingService.say(message);
+
+    }
+
+    @GetMapping("/rest/say")
+    public String restSay(@RequestParam String message){
+        //发送请求
+        return sayingRestService.say(message);
+
+    }
+
 
     @Bean
     public ClientHttpRequestInterceptor interceptor(){

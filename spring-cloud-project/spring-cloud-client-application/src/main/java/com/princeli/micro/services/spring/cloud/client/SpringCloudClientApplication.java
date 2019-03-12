@@ -1,9 +1,13 @@
 package com.princeli.micro.services.spring.cloud.client;
 
+import com.princeli.micro.services.spring.cloud.client.annotation.EnableRestClient;
+import com.princeli.micro.services.spring.cloud.client.service.feign.clients.SayingService;
+import com.princeli.micro.services.spring.cloud.client.service.rest.clients.SayingRestService;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
@@ -15,6 +19,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableScheduling
+@EnableFeignClients(clients = SayingService.class)     //引入FeignClient
+@EnableRestClient(clients = SayingRestService.class)   //引入RestClient
 public class SpringCloudClientApplication {
     public static void main(String[] args) {
         new SpringApplicationBuilder(SpringCloudClientApplication.class)
