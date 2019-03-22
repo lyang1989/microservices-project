@@ -46,7 +46,7 @@ public class RequestMappingMethodInvocationHandler implements InvocationHandler 
 
             //获取方法的数量
             int count = method.getParameterCount();
-            //方法名称集合
+            //方法参数名称集合
             String[] parameterNames = parameterNameDiscoverer.getParameterNames(method);
             //方法参数类型集合
             Class<?>[] paramTypes = method.getParameterTypes();

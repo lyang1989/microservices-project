@@ -2,8 +2,14 @@ package com.princeli.micro.services.spring.cloud.client.service.rest.clients;
 
 import com.princeli.micro.services.spring.cloud.client.annotation.RestClient;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.core.DefaultParameterNameDiscoverer;
+import org.springframework.core.ParameterNameDiscoverer;
+import org.springframework.util.ReflectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.lang.reflect.Method;
+import java.util.stream.Stream;
 
 /**
  * @program: microservices-project
@@ -15,6 +21,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface SayingRestService {
 
     @GetMapping("/say")
-    String say(@RequestParam("message") String message);
+    String say(@RequestParam String message);
+
+
+    public static void main(String[] args) {
+        System.out.println("");
+        Method method = ReflectionUtils.findMethod(SayingRestService.class,"say",String.class);
+        ParameterNameDiscoverer discoverer = new DefaultParameterNameDiscoverer();
+        Stream.of(discoverer.getParameterNames(method)).forEach(System.out::println);
+    }
 
 }
+

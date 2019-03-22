@@ -4,6 +4,8 @@ import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Scheduler;
 import reactor.core.scheduler.Schedulers;
 
+import java.util.stream.Stream;
+
 /**
  * @program: microservices-project
  * @description: ${description}
@@ -21,6 +23,11 @@ public class ReactorDemo {
                 .subscribe(ReactorDemo::println) //订阅才执行
         ;
         Thread.sleep(1000);
+
+
+        Stream.of(1,2,3,4,5,6)          //生产
+                .map(String::valueOf)   //处理
+                .forEach(System.out::println);             //消费
     }
 
 
