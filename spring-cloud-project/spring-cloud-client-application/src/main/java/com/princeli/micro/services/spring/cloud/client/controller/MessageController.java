@@ -3,12 +3,15 @@ package com.princeli.micro.services.spring.cloud.client.controller;
 import com.princeli.micro.services.spring.cloud.client.stream.SimpleMessageService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.stream.messaging.Source;
+import org.springframework.http.MediaType;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.GenericMessage;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @program: microservices-project
@@ -41,6 +44,11 @@ public class MessageController {
     @GetMapping("/stream/send")
     public boolean streamSend(@RequestParam String message){
        MessageChannel messageChannel = simpleMessageService.gupao();
-       return messageChannel.send(new GenericMessage<String>("Hello,Word"));
+
+        Map<String,Object> headers = new HashMap<>();
+        headers.put("charset-encoding","UTF-8");
+        headers.put("content-type", MediaType.TEXT_PLAIN.toString());
+        GenericMessage<String> msg = new GenericMessage<String>(message,headers);
+       return messageChannel.send(msg);
     }
 }
