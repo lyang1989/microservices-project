@@ -1,6 +1,7 @@
 package com.princeli.micro.services.spring.cloud.client;
 
 import com.princeli.micro.services.spring.cloud.client.annotation.EnableRestClient;
+import com.princeli.micro.services.spring.cloud.client.event.HttpRemoteAppEventListener;
 import com.princeli.micro.services.spring.cloud.client.service.feign.clients.SayingService;
 import com.princeli.micro.services.spring.cloud.client.service.rest.clients.SayingRestService;
 import com.princeli.micro.services.spring.cloud.client.stream.SimpleMessageService;
@@ -28,6 +29,7 @@ public class SpringCloudClientApplication {
     public static void main(String[] args) {
         new SpringApplicationBuilder(SpringCloudClientApplication.class)
                 .web(WebApplicationType.SERVLET)
+                .listeners(new HttpRemoteAppEventListener())
                 .run(args);
     }
 }

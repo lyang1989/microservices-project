@@ -1,6 +1,5 @@
 package com.princeli.micro.services.spring.cloud.server;
 
-import com.princeli.micro.services.spring.cloud.server.aop.ServerControllerAspect;
 import com.princeli.micro.services.spring.cloud.server.stream.SimpleMessageReceiver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.WebApplicationType;
@@ -11,11 +10,10 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.annotation.Import;
 import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.SubscribableChannel;
-import org.springframework.scheduling.annotation.EnableScheduling;
+
 
 import javax.annotation.PostConstruct;
 import java.io.UnsupportedEncodingException;

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.util.stream.Stream;
 
 /**
@@ -24,9 +25,14 @@ public interface SayingRestService {
     String say(@RequestParam String message);
 
 
-    public static void main(String[] args) {
-        System.out.println("");
-        Method method = ReflectionUtils.findMethod(SayingRestService.class,"say",String.class);
+    public static void main(String[] args) throws Exception {
+        Method method = SayingRestService.class.getMethod("say",String.class);
+        Parameter parameter = method.getParameters()[0];
+        System.out.println(parameter);
+
+        parameter.isNamePresent();
+
+        //Method method = ReflectionUtils.findMethod(SayingRestService.class,"say",String.class);
         ParameterNameDiscoverer discoverer = new DefaultParameterNameDiscoverer();
         Stream.of(discoverer.getParameterNames(method)).forEach(System.out::println);
     }
