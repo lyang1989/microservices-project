@@ -13,6 +13,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.SubscribableChannel;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 
 import javax.annotation.PostConstruct;
@@ -29,6 +30,7 @@ import java.io.UnsupportedEncodingException;
 @EnableHystrix
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @EnableBinding(SimpleMessageReceiver.class)
+@EnableAsync
 public class SpringCloudServerApplication {
     public static void main(String[] args) {
         new SpringApplicationBuilder(SpringCloudServerApplication.class)

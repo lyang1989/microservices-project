@@ -2,6 +2,7 @@ package com.princeli.micro.services.spring.cloud.server.controller;
 
 import org.springframework.context.*;
 import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -57,7 +58,7 @@ public class RemoteAppEventReceiverController implements ApplicationEventPublish
         }
     }
 
-
+    @Async
     @EventListener
     public void onEvent(SenderRemoteAppEvent event){
         System.out.println("接收到事件源:" + event +"来自应用:" +event.getSender());

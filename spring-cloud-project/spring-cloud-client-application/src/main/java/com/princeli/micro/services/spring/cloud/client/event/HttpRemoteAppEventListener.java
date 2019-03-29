@@ -1,11 +1,9 @@
 package com.princeli.micro.services.spring.cloud.client.event;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEvent;
-import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.SmartApplicationListener;
 import org.springframework.web.client.RestTemplate;
