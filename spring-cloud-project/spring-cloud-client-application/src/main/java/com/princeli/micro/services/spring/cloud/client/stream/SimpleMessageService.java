@@ -11,6 +11,13 @@ import org.springframework.messaging.MessageChannel;
  **/
 public interface SimpleMessageService {
 
-    @Output("gupao2018")      //Ch
-    MessageChannel gupao();
+    @Output("gupao2018")      //Channel name
+    MessageChannel gupao();   //destination=test2018
+
+
+    @Output("test007")      //Channel name
+    MessageChannel testChannel();//destination=test007
+
 }
+
+

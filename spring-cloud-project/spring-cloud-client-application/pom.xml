@@ -55,6 +55,15 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
         </dependency>
+
+        <!-- RocketMQ-->
+        <dependency>
+            <groupId>com.princeli</groupId>
+            <artifactId>spring-cloud-stream-binder-rocketmq</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-stream-rabbit</artifactId>

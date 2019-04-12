@@ -78,6 +78,11 @@ public class SpringCloudServerApplication {
         System.out.println("onServiceActivator(String)" + data);
     }
 
+    @StreamListener("test007")
+    public void onMessageFromRocketMQ(byte[] data){ //Spring Cloud Stream 注解编程
+        System.out.println("RocketMQ - onMessage(byte[])" + new String(data));
+
+    }
 
 
 }

@@ -1,0 +1,1 @@
+rocketmq=\com.princeli.micro.services.stream.binder.rocketmq.RockMQMessageChannelBinderConfiguration

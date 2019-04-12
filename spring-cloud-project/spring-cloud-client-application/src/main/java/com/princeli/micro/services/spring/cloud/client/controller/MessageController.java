@@ -51,4 +51,11 @@ public class MessageController {
         GenericMessage<String> msg = new GenericMessage<String>(message,headers);
        return messageChannel.send(msg);
     }
+
+
+    @GetMapping("/stream/send/rocketmq")
+    public boolean streamSendRocketMQ(@RequestParam String message){
+        MessageChannel messageChannel = simpleMessageService.testChannel();
+        return messageChannel.send(new GenericMessage<String>(message));
+    }
 }

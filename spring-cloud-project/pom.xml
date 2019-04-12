@@ -16,6 +16,7 @@
         <module>spring-cloud-client-application</module>
         <module>spring-cloud-server-application</module>
         <module>spring-cloud-servlet-gateway</module>
+        <module>spring-cloud-stream-binder-rocketmq</module>
     </modules>
 
     <artifactId>spring-cloud-project</artifactId>

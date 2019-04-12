@@ -14,4 +14,8 @@ public interface SimpleMessageReceiver {
     @Input("gupao2018")
     SubscribableChannel gupao();
 
+
+    @Input("test007")
+    SubscribableChannel testChannel();
+
 }
